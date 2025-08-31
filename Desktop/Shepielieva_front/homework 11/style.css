@@ -1,0 +1,15 @@
+.grid-table {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    max-width: 600px;
+    margin: 30px auto;
+    border: 2px solid #444;
+}
+
+.cell {
+    border: 1px solid #999;
+    padding: 10px;
+    text-align: center;
+    font-family: monospace;
+    background-color: #f4f4f4;
+}
