@@ -1,0 +1,39 @@
+.wrapper {
+  display: flex;
+  gap: 20px;
+}
+
+.wrapper > div {
+  min-width: 350px;
+  min-height: 100px;
+  padding: 20px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  display: block;
+  width: fit-content;
+}
+
+li:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.btn-buy {
+  cursor: pointer;
+  text-transform: uppercase;
+  background-color: rgb(233, 241, 219);
+  color: rgb(28, 50, 8);
+  border-radius: 15%;
+  border:rgb(28, 50, 8) solid 1px;
+  margin: 0 auto;
+  margin-top: 15px;
+}
