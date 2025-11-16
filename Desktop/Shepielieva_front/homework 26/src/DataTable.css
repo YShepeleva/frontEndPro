@@ -1,0 +1,37 @@
+.data-table {
+    display: grid;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    overflow: hidden;
+    width: fit-content;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 150px 150px 150px;
+    background: #f0f0f0;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 150px 150px 150px;
+    border-bottom: 1px solid #eee;
+}
+
+.row:hover {
+    background: #bdfbf8;
+}
+
+.row div,
+.header div {
+    padding: 8px 12px;
+}
+
+.no-data {
+    padding: 12px;
+    text-align: center;
+    grid-column: 1 / -1;
+    color: #e2e2e2;
+}
