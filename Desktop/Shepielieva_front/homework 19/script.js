@@ -1,27 +1,40 @@
-const loadMoreBtn = document.querySelector('.load-more');
-const planetsBlock = document.querySelector('.block-planets');
-const vehiclesBlock = document.querySelector('.block-vehicles');
-const loadMorePlanetsBtn = planetsBlock.querySelector('.load-more');
-const loadMoreVehiclesBtn = vehiclesBlock.querySelector('.load-more');
+const entities = {
+    people: {
+      url: 'https://swapi.dev/api/people/',
+      list: document.querySelector(swapi.selectors.listPeople),
+      loadMoreBtn: document.querySelector(swapi.selectors.loadMorePeopleBtn),
+    },
+    planets: {
+      url: 'https://swapi.dev/api/planets/',
+      list: document.querySelector(swapi.selectors.listPlanets),
+      loadMoreBtn: document.querySelector(swapi.selectors.loadMorePlanetsBtn),
+    },
+    vehicles: {
+      url: 'https://swapi.dev/api/vehicles/',
+      list: document.querySelector(swapi.selectors.listVehicles),
+      loadMoreBtn: document.querySelector(swapi.selectors.loadMoreVehiclesBtn),
+    }
+  };  
 
-let peopleUrl = 'https://swapi.dev/api/people/';
-let planetsUrl = 'https://swapi.dev/api/planets/';
-let vehiclesUrl = 'https://swapi.dev/api/vehicles/';
+  loadData(swapi.planets);
+  loadData(swapi.planets);
+  loadData(swapi.vehicles)
 
-function loadPeople() {
-    fetch(peopleUrl)
+function loadData(entity) {
+    fetch(entity.url)
         .then(res => res.json())
         .then(result => {
-            const namePeople = result.results;
-            const list = document.querySelector('.list-charactars');
+            const items = result.results;
 
-            namePeople.forEach(person => {
+            items.forEach(item => {
                 const li = document.createElement('li');
-                li.textContent = person.name;
+                li.textContent = item.name;
                 list.appendChild(li);
             });
 
-            if (peopleUrl) {
+            link = result.next;
+
+            if (link) {
                 loadMoreBtn.classList.remove('hidden');
             } else {
                 loadMoreBtn.classList.add('hidden');
@@ -32,76 +45,11 @@ function loadPeople() {
         });
 }
 
-loadMoreBtn.addEventListener('click', () => {
-    if (peopleUrl) loadPeople();
-});
-
-document.querySelector('.button-charactars').addEventListener('click', () => {
-    loadPeople();
-});
+    config.button.addEventListener('click', loadData);
+    config.loadMoreBtn.addEventListener('click', () => {
+        if (currentUrl) loadData();
+    });
 
 
-function loadPlanets() {
-    fetch(planetsUrl)
-        .then(res => res.json())
-        .then(result => {
-            const planets = result.results;
-            const list = planetsBlock.querySelector('.list-planets');
 
-            planets.forEach(planet => {
-                const li = document.createElement('li');
-                li.textContent = planet.name;
-                list.appendChild(li);
-            });
-
-            if (planetsUrl) {
-                loadMorePlanetsBtn.classList.remove('hidden');
-            } else {
-                loadMorePlanetsBtn.classList.add('hidden');
-            }
-        })
-        .catch(() => {
-            alert('Не удалось загрузить планеты.');
-        });
-}
-
-planetsBlock.querySelector('.button-planets').addEventListener('click', () => {
-    loadPlanets();
-});
-
-loadMorePlanetsBtn.addEventListener('click', () => {
-    if (planetsUrl) loadPlanets();
-});
-
-function loadVehicles() {
-    fetch(vehiclesUrl)
-        .then(res => res.json())
-        .then(result => {
-            const vehicles = result.results;
-            const list = vehiclesBlock.querySelector('.list-vehicles');
-
-            vehicles.forEach(v => {
-                const li = document.createElement('li');
-                li.textContent = v.name;
-                list.appendChild(li);
-            });
-
-            if (vehiclesUrl) {
-                loadMoreVehiclesBtn.classList.remove('hidden');
-            } else {
-                loadMoreVehiclesBtn.classList.add('hidden');
-            }
-        })
-        .catch(() => {
-            alert('Не удалось загрузить транспорт');
-        });
-}
-
-vehiclesBlock.querySelector('.button-vehicles').addEventListener('click', () => {
-    loadVehicles();
-});
-
-loadMoreVehiclesBtn.addEventListener('click', () => {
-    if (vehiclesUrl) loadVehicles();
-});
 
