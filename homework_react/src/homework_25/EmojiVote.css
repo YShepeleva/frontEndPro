@@ -1,0 +1,26 @@
+.container {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  margin-top: 40px;
+}
+
+.emoji-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  color: rgb(123, 121, 121);
+}
+
+.result {
+  margin-top: 30px;
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  border: 1px solid rgb(72, 255, 0);
+  margin-top: 20px;
+}
