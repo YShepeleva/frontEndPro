@@ -1,0 +1,21 @@
+.btn-switch{
+  border: 1px solid black;
+}
+
+.light-theme,
+.dark-theme {
+  min-height: 70vh;
+  width: 460px;
+}
+
+.light-theme {
+  background-color: white;
+  color: black; 
+}
+
+.dark-theme {
+  background-color: #222;
+  color: white; 
+}
+
+
